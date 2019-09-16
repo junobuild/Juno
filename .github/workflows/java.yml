@@ -1,0 +1,44 @@
+name: Java CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, windows-latest, macOs-latest]
+        java: ['11', '12']
+        include:
+          - platform: windows-latest
+            gradlew: 'gradlew.bat'
+          - platform: ubuntu-latest
+            gradlew: './gradlew'
+    name: Java ${{ matrix.java }} Build On ${{ matrix.platform }}
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-java@master
+        with:
+          java-version: ${{ matrix.java }}
+      - run: ${{ matrix.gradlew }} build
+
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, windows-latest, macOs-latest]
+        java: ['11', '12']
+        include:
+          - platform: windows-latest
+            gradlew: 'gradlew.bat'
+          - platform: ubuntu-latest
+            gradlew: './gradlew'
+    name: Java ${{ matrix.java }} Test On ${{ matrix.platform }}
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-java@master
+        with:
+          java-version: ${{ matrix.java }}
+      - run: ${{ matrix.gradlew }} test
