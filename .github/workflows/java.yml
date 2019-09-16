@@ -36,7 +36,7 @@ jobs:
             gradlew: 'gradlew.bat'
           - platform: ubuntu-latest
             gradlew: './gradlew'
-          - platform: macOs-latest:
+          - platform: macOs-latest
             gradlew: './gradlew'
     name: Java ${{ matrix.java }} Test On ${{ matrix.platform }}
     runs-on: ${{ matrix.platform }}
