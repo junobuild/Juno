@@ -139,6 +139,12 @@ public final class WindowsToolchain implements IToolchain {
         dependencies);
   }
 
+  @Override
+  public String toolchainSetupCommand() {
+    String vsPath = System.getenv("JUNO_VS");
+    return "\"" + vsPath + "\\Common7\\Tools\\VsDevCmd.bat\"";
+  }
+
   private List<String> fixDeps(final List<String> dependencies) {
     List<String> res = new LinkedList<>();
     for (String dep : dependencies) {
