@@ -15,6 +15,8 @@ jobs:
             gradlew: 'gradlew.bat'
           - platform: ubuntu-latest
             gradlew: './gradlew'
+          - platform: macOs-latest
+            gradlew: './gradlew'
     name: Java ${{ matrix.java }} Build On ${{ matrix.platform }}
     runs-on: ${{ matrix.platform }}
     steps:
