@@ -1,0 +1,4 @@
+rootProject.name = 'Juno'
+include 'Toolchain'
+findProject(':Toolchain')?.name = 'toolchain'
+
