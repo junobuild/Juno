@@ -27,7 +27,11 @@ public class ExecutorTest {
     BufferedReader reader = new BufferedReader(
         new FileReader(new File(dir + File.separator + "out.txt")));
 
-    assertEquals(reader.readLine(), "\"Hello, World!\"");
+    if (SystemUtils.IS_OS_WINDOWS) {
+      assertEquals(reader.readLine(), "\"Hello, World!\"");
+    } else {
+      assertEquals(reader.readLine(), "Hello, World!");
+    }
   }
 
 }
