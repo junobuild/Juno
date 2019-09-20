@@ -155,11 +155,6 @@ public final class UnixToolchain implements IToolchain {
         executableFile);
   }
 
-  @Override
-  public String toolchainSetupCommand() {
-    return "";
-  }
-
   private List<String> getSharedLibraryDirs(final List<String> deps) {
     LinkedList<String> res = new LinkedList<>();
     for (String dep : deps) {

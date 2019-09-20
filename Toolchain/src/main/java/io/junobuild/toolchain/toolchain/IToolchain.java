@@ -44,8 +44,6 @@ public interface IToolchain {
       List<String> libraries,
       List<String> dependencies);
 
-  String toolchainSetupCommand();
-
   static List<String> addPrefixToList(List<String> list, String prefix) {
     return list.stream().map((String v) -> prefix + v).collect(toList());
   }

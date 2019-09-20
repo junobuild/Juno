@@ -1,4 +1,6 @@
 rootProject.name = 'Juno'
-include 'Toolchain'
+include 'Toolchain', 'Executor'
+
 findProject(':Toolchain')?.name = 'toolchain'
+findProject(':Executor')?.name = 'executor'
 
